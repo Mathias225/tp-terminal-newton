@@ -1,0 +1,26 @@
+TP1 — Réponses
+
+Partie A
+- Commande pour afficher le répertoire courant : pwd
+- Commande mkdir -p (arborescence) :
+  mkdir -p listes-electorales-martinique/data/{nord,sud,centre} listes-electorales-martinique/{scripts,rapports}
+- Création des fichiers nord :
+  cd listes-electorales-martinique/data/nord && touch grand-riviere.txt trinite.txt marigot.txt
+- Écriture du texte :
+  echo "Villes du Nord de la Martinique" > grand-riviere.txt
+  echo "Villes du Nord de la Martinique" > trinite.txt
+  echo "Villes du Nord de la Martinique" > marigot.txt
+- Affichage avec pipe :
+  ls *.txt | xargs cat
+
+Partie B
+- Grep Fort-de-France :
+  grep '^Fort-de-France' data/listes.csv
+- Compter Fort-de-France :
+  grep -c '^Fort-de-France' data/listes.csv
+- Trier par nom (colonne 4) :
+  sort -t',' -k4,4 data/listes.csv
+- Extraire la colonne commune :
+  cut -d',' -f1 data/listes.csv
+
+Note : l'énoncé mentionne "cut -f2" pour "commune" mais commune est en colonne 1 dans le fichier.
